@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:myfluttertest/button/ButtonPage.dart';
 import 'package:myfluttertest/cupertino/CupertinoTestPage.dart';
 
+import 'material/MaterialTestPage.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -52,7 +54,9 @@ class _MyHomePageState extends State<MyHomePage> {
               )
             ],),
             RaisedButton(onPressed: (){
-
+              Navigator.push(context, MaterialPageRoute(builder: (context){
+                return MaterialTestPage();
+              }));
             },
             child: Text("Material"),),
             RaisedButton(
