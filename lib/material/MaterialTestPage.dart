@@ -89,7 +89,8 @@ class MaterialTestPageState extends State<MaterialTestPage> with SingleTickerPro
     double slideValue = 0 ;
     TextEditingController textEditingController ;
     ScrollController scrollController;
-
+    String dropdownValue = 'One';
+    bool checkBoxValue = true ;
   Widget createTab() {
       if(selectedTabIndex== 0)
           return TabBarView(children: <Widget>[
@@ -104,21 +105,25 @@ class MaterialTestPageState extends State<MaterialTestPage> with SingleTickerPro
               controller: scrollController,
               child: Column(
                   children: <Widget>[
+                      Radio(value:  1, groupValue: radioIndex, onChanged: (v){
+                          setState(() {
+                              radioIndex = v ;
+                          });
+                      }),
+                      Radio(value:  0, groupValue:radioIndex, onChanged: (v){
+                          setState(() {
+                              radioIndex = v ;
+                          });
+                      }),
+                      Checkbox(value: checkBoxValue, onChanged: (v){
+                          setState(() {
+                            checkBoxValue = v;
+                          });
+                      }),
                       ListTile(
-                          title: Text("Radio 0"),
-                          leading: Radio(value:  0, groupValue:radioIndex, onChanged: (v){
-                              setState(() {
-                                  radioIndex = v ;
-                              });
-                          })
-                      ),
-                      ListTile(
-                          title: Text("Radio 1"),
-                          leading: Radio(value:  1, groupValue: radioIndex, onChanged: (v){
-                              setState(() {
-                                  radioIndex = v ;
-                              });
-                          })
+                          title: Text("ListTile title"),
+                          leading: Text("ListTile leading"),
+                          trailing: Text("ListTile trailing"),
                       ),
                       ListTile(
                           title: Text("Switch"),
@@ -165,12 +170,76 @@ class MaterialTestPageState extends State<MaterialTestPage> with SingleTickerPro
                       ),
                       Image(
                           image: AssetImage("assets/image/a.jpeg"),
-                      )
+                      ),
+                      IconButton( icon: Icon(Icons.add), onPressed: (){},),
+                      DropdownButton<String>(
+                          value: dropdownValue,
+                          items: <DropdownMenuItem<String>>[
+                              DropdownMenuItem(value: "One", child: Text("One"),),
+                              DropdownMenuItem(value: "Two", child: Text("Two"),),
+                              DropdownMenuItem(value: "Three", child: Text("Three"),),
+                              DropdownMenuItem(value: "Four", child: Text("Four"),),
+                          ],
+                          onChanged: (v){
+                              setState(() {
+                                  dropdownValue = v;
+                              });
+                          },
+                      ),
+                      PopupMenuButton(
+                          icon: Icon( Icons.menu ),
+                          onSelected: (v){
+
+                          },
+                          itemBuilder: (context){
+                              return <PopupMenuEntry<String>>[
+                                  PopupMenuItem(value:"One" , child: Text("One"),),
+                                  PopupMenuItem(value:"Two" , child: Text("Two"),),
+                                  PopupMenuItem(value:"Three" , child: Text("Three"),),
+                                  PopupMenuItem(value:"Four" , child: Text("Four"),),
+                              ];
+                          },
+                      ),
+                      Chip(
+                          avatar: CircleAvatar(
+                              backgroundColor: Colors.grey.shade800,
+                              child: Icon(Icons.check),
+                          ),
+                          label: Text('Aaron Burr'),
+                      ),
+                      Icon(Icons.play_arrow),
+                      Card(
+                          child: Container(
+                              alignment: Alignment.center,
+                              height: 72,
+                              width: 144,
+                              child: Text("Card"),
+                          ),
+                      ),
+                      CircularProgressIndicator(),
+                      LinearProgressIndicator(),
+                      DataTable(columns: <DataColumn>[
+                          DataColumn(label: Text("id")),
+                          DataColumn(label: Text("name"))
+                      ], rows: <DataRow>[
+                          DataRow(cells: <DataCell>[
+                              DataCell(Text("1")),
+                              DataCell(Text("李白"))
+                          ]),
+                          DataRow(cells: <DataCell>[
+                              DataCell(Text("2")),
+                              DataCell(Text("杜甫"))
+                          ]),
+                          DataRow(cells: <DataCell>[
+                              DataCell(Text("3")),
+                              DataCell(Text("白居易"))
+                          ])
+                      ]),
+                      Tooltip(child: RaisedButton(child: Text("Tooltip"), onPressed: (){},), message: "This is message of tooltip.",)
                   ],
               ),
           );
-      }
-      else
+      } else
           return Text("This is Tab$selectedTabIndex");
 
   }

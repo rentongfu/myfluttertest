@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:myfluttertest/button/ButtonPage.dart';
 import 'package:myfluttertest/cupertino/CupertinoTestPage.dart';
+import 'package:myfluttertest/gridview/GridViewPage.dart';
+import 'package:myfluttertest/listview/ListViewPage.dart';
 
 import 'material/MaterialTestPage.dart';
 
@@ -58,13 +60,35 @@ class _MyHomePageState extends State<MyHomePage> {
                 return MaterialTestPage();
               }));
             },
-            child: Text("Material"),),
+              child: Text("Material"),),
             RaisedButton(
               child: Text("Cupertino"),
               onPressed: (){
                 Navigator.push(context, CupertinoPageRoute(builder: (context){
                   return CupertinoTestPage();
                 }));
+              },
+            ),
+            RaisedButton(
+              child: Text("ListView"),
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (c){
+                  return ListViewPage();
+                }));
+              },
+            ),
+            RaisedButton(
+              child: Text("GridView"),
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder:(context){
+                  return GridViewPage();
+                }));
+              },
+            ),
+            RaisedButton(
+              child: Text("Animation"),
+              onPressed: (){
+
               },
             )
           ],
