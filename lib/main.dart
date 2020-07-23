@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:myfluttertest/animation/AnimationMenuPage.dart';
 import 'package:myfluttertest/button/ButtonPage.dart';
 import 'package:myfluttertest/cupertino/CupertinoTestPage.dart';
 import 'package:myfluttertest/gridview/GridViewPage.dart';
@@ -88,7 +89,9 @@ class _MyHomePageState extends State<MyHomePage> {
             RaisedButton(
               child: Text("Animation"),
               onPressed: (){
-
+                Navigator.push(context, MaterialPageRoute(builder:(context){
+                  return AnimationMenuPage();
+                }));
               },
             )
           ],
