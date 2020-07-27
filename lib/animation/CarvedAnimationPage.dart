@@ -1,6 +1,8 @@
 
 import 'package:flutter/material.dart';
 
+///非线性变化动画CurvedAnimation的使用demo
+///与Animation类不同的是，CurvedAnimation可以以非线性的节奏来产生变化值，而Animation只能产生均匀变化的值。
 class _AnimatedLogo extends AnimatedWidget{
   static final _opacityTween = Tween<double>(begin:0.1 , end: 1);
   static final _sizeTween = Tween<double>(begin:0 , end : 300);

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+///动画效果最基础的类Animation类和AnimationController类的使用demo。
+///AnimationController控制动画的播放
+///Animation类定时产生数值变化事件，在这个事件中刷新UI。
 class FirstAnimationDemoPage extends StatefulWidget{
   @override
   State<StatefulWidget> createState() {

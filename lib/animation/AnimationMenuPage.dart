@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myfluttertest/animation/AnimatedBuilderPage.dart';
+import 'package:myfluttertest/animation/AnimatedContainerPage.dart';
+import 'package:myfluttertest/animation/AnimatedOpacityPage.dart';
 import 'package:myfluttertest/animation/AnimatedWidgetPage.dart';
 import 'package:myfluttertest/animation/FirstAnimationDemoPage.dart';
 
@@ -47,6 +49,22 @@ class AnimationMenuPageState extends State<AnimationMenuPage>{
             onPressed: (){
               Navigator.push(context, MaterialPageRoute(builder: (context){
                 return CarvedAnimationPage();
+              }));
+            },
+          ),
+          RaisedButton(
+            child: Text("AnimatedOpacity"),
+            onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (c){
+                return AnimatedOpacityPage();
+              }));
+            },
+          ),
+          RaisedButton(
+            child: Text("AnimatedContainer"),
+            onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (c){
+                return AnimatedContainerPage();
               }));
             },
           )

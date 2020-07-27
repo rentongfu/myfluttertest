@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+/// AnimationWidget使用demo
+/// AnimationWidget是一个会在传入listenable变化时，自动调用setState重新build的组件。
+/// 如果不用这个组件的话，我们要在animation的更新事件中，手动调用setState方法来刷新界面。
+/// 如果将动画内容放到AnimatedWidget中，则不用这么做。
 class AnimatedLogo extends AnimatedWidget{
   AnimatedLogo({Key key , Animation<double> animation}):super(key:key , listenable : animation);
   @override
