@@ -4,6 +4,8 @@ import 'package:myfluttertest/animation/AnimatedContainerPage.dart';
 import 'package:myfluttertest/animation/AnimatedOpacityPage.dart';
 import 'package:myfluttertest/animation/AnimatedWidgetPage.dart';
 import 'package:myfluttertest/animation/FirstAnimationDemoPage.dart';
+import 'package:myfluttertest/animation/BasicHeroAnimatePage.dart';
+import 'package:myfluttertest/animation/RadioHeroAnimatePage.dart';
 
 import 'CarvedAnimationPage.dart';
 
@@ -65,6 +67,22 @@ class AnimationMenuPageState extends State<AnimationMenuPage>{
             onPressed: (){
               Navigator.push(context, MaterialPageRoute(builder: (c){
                 return AnimatedContainerPage();
+              }));
+            },
+          ),
+          RaisedButton(
+            child: Text("BasicHeroAnimate"),
+            onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (c){
+                return BasicHeroAnimatePageA();
+              }));
+            },
+          ),
+          RaisedButton(
+            child: Text("RadioHeroAnimate"),
+            onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (c){
+                return RadioHeroAnimatePageA();
               }));
             },
           )
